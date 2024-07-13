@@ -111,9 +111,9 @@ const CreateFood = () => {
                 }
             };
 
-            console.log(import.meta.env.VITE_REACT_APP_BACKEND_BASEURL);
+            
 
-            await axios.post(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/food`, formData, config);
+            await axios.post(`${baseUrl}/food`, formData, config);
 
             enqueueSnackbar('Food saved succesfully', { variant:'success' });
             navigate('/admin');
