@@ -3,7 +3,7 @@ import { useSnackbar } from "notistack";
 import React,{useState,useEffect} from "react"
 import { useNavigate, useParams,Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
-
+import { baseUrl } from "../urls";
 
 
 const EditFood = ()=>{
@@ -29,7 +29,7 @@ const EditFood = ()=>{
   useEffect(()=>{
     setLoading(true);
     axios
-    .get(`http://localhost:3000/food/${id}`)
+    .get(`${baseUrl}/food/${id}`)
     .then((response)=>{
       setName(response.data.name);
       setPriceInCents(response.data.priceInCents);
@@ -46,7 +46,7 @@ const EditFood = ()=>{
     const data = {name , priceInCents};
     setLoading(true);
     axios
-    .put(`http://localhost:3000/food/${id}`,data,config)
+    .put(`${baseUrl}/food/${id}`,data,config)
     .then(()=>{
       setLoading(false);
       enqueueSnackbar('Food edited succesfully' ,{variant:'success'});

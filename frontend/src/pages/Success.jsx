@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { baseUrl } from '../urls';
 
 const Success = () => {
 
@@ -11,7 +12,7 @@ const Success = () => {
 
   const postOrderToDatabase = async (postData) => {
     try {
-      const response = await fetch('http://localhost:3000/order', {
+      const response = await fetch(`${baseUrl}/order`, {
         method: 'POST',
         headers: {
           'content-Type': 'application/json'
@@ -33,7 +34,7 @@ const Success = () => {
   useEffect(() => {
     const fetchSessionDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/stripe/api/session/${session_id}`);
+        const response = await fetch(`${baseUrl}/stripe/api/session/${session_id}`);
         if (!response.ok) {
           throw new Error('Response was not ok');
         }

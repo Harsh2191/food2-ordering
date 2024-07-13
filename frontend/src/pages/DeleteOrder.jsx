@@ -3,6 +3,7 @@ import axios from "axios"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { useSnackbar } from 'notistack'
 import Spinner from '../components/Spinner'
+import { baseUrl } from '../urls'
 
 const DeleteOrder = () => {
 
@@ -24,7 +25,7 @@ const DeleteOrder = () => {
         setLoading(true);
 
         axios
-            .delete(`http://localhost:3000/order/${id}`, config)
+            .delete(`${baseUrl}/order/${id}`, config)
             .then(() => {
                 setLoading(false);
                 enqueueSnackbar('Order deleted succesfully', {variant:'success'});

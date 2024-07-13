@@ -6,6 +6,7 @@ import logo from "../assets/qdeli.png";
 
 import restaurant from "../assets/restaurant1.png";
 import FoodCard from "../components/FoodCard";
+import { baseUrl } from "../urls";
 
 const Home = ()=>{
 
@@ -16,7 +17,7 @@ const [loading, setLoading] = useState(false);
 useEffect(()=>{
   setLoading(true);
 axios
-.get('http://localhost:3000/food')
+.get(`${baseUrl}/food`)
 .then((respone) =>{
   setFood(respone.data.data);
   setLoading(false);

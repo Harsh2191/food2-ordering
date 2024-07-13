@@ -3,6 +3,7 @@ import { useCart } from "../../Context/CartContext";
 import axios from "axios";
 import { BiPlus,BiMinus } from "react-icons/bi";
 import {loadStripe} from "@stripe/stripe-js"
+import { baseUrl } from "../urls";
 
 const stripePromise = loadStripe('pk_test_51PHX2WSELyXIcG9qx0D3rtrCLvB75bVuUUoflf0ge5buknY2xmVY3JUt4M70MAYk61Gjhqwu9zfwlmNLEjofKaVn00EMYyFvEg');
 
@@ -29,7 +30,7 @@ const Cart = ()=>{
 
     try{
       const token=localStorage.getItem('token');
-      const response = await axios.post('http://localhost:3000/stripe/create-checkout-session',{
+      const response = await axios.post(`${baseUrl}/stripe/create-checkout-session`,{
         products: transformedItems
       })
       if(response.data.id) {

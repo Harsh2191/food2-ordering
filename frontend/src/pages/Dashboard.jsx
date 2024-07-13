@@ -2,6 +2,7 @@ import React,{useEffect,useState} from "react";
 import Spinner from "../components/Spinner";
 import axios from "axios"
 import { Link } from "react-router-dom";
+import { baseUrl } from "../urls";
 
 const Dashboard = ()=>{
 
@@ -12,7 +13,7 @@ const Dashboard = ()=>{
   useEffect(()=> {
     setLoading(true);
     axios
-    .get('http://localhost:3000/order')
+    .get(`${baseUrl}/order`)
     .then((response)=>{
       setOrders(response.data);
       setLoading(false);

@@ -3,6 +3,7 @@ import { useNavigate, useParams,Link } from "react-router-dom";
 import axios from "axios";
 import {useSnackbar} from "notistack"
 import Spinner from "../components/Spinner";
+import { baseUrl } from "../urls";
 
 const DeleteFood = ()=>{
   const [loading, setLoading] = useState(false);
@@ -24,7 +25,7 @@ const DeleteFood = ()=>{
   const handleDeleteFood = ()=>{
     setLoading(true);
     axios
-    .delete(`http://localhost:3000/food/${id}`,config)
+    .delete(`${baseUrl}/food/${id}`,config)
     .then(()=>{
       setLoading(false);
       enqueueSnackbar('Food Deleted',{variant:'success'});

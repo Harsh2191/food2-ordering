@@ -1,0 +1,1 @@
+export const baseUrl = `https://food2-order-backend.onrender.com`

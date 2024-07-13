@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import Spinner from '../components/Spinner';
-
+import { baseUrl } from '../urls';
 const CreateFood = () => {
 
     const [name, setName] = useState('');
@@ -49,7 +49,7 @@ const CreateFood = () => {
         data.append('file', img);
 
         try {
-            const uploadUrl = 'http://localhost:3000/upload-image';
+            const uploadUrl = `${baseUrl}/upload-image`;
             const res = await axios.post(uploadUrl, data, {
                 headers: {
                     'Authorization': `Bearer ${token}`

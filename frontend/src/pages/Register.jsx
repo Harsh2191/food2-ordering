@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate,Link } from "react-router-dom";
 
 import axios from "axios";
+import { baseUrl } from "../urls";
 
 const Register = ()=>{
 const navigate=useNavigate();
@@ -37,7 +38,7 @@ const sumbitHandler = async (e) =>{
         'content-Type' : ' application/json'
       }
     };
-    await axios.post('http://localhost:3000/auth/register',{
+    await axios.post(`${baseUrl}/auth/register`,{
       name:userData.name,
       email: userData.email,
       password : userData.password

@@ -1,14 +1,14 @@
 import React ,{useEffect,useState}from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { baseUrl } from "../urls";
 const Admin = ()=>{
   const [food, setFood] = useState([]);
   const[loading,setLoading] = useState(false);
 
   useEffect(()=>{
     setLoading(true);
-   axios.get("http://localhost:3000/food")
+   axios.get(`${baseUrl}/food`)
     .then((response)=>{
       setFood(response.data.data);
       setLoading(false);
