@@ -10,7 +10,9 @@ import  {auth}  from "./middleware/authMiddleware.js";
 
 import cors from "cors";
 import User from "./models/user.js";
-import {v2 as cloudinary} from "cloudinary"
+import pkg from 'cloudinary';
+const { v2: cloudinary } = pkg;
+
 config();
 import multer from "multer";
 import {CloudinaryStorage} from "multer-storage-cloudinary"
